@@ -99,7 +99,6 @@ function init() {
   gui.open();
 
   param = {
-    motion: true,
     width: rectLight.width,
     height: rectLight.height,
     color: rectLight.color.getHex(),
@@ -112,7 +111,6 @@ function init() {
     roughness: matStdFloor.roughness,
     metalness: matStdFloor.metalness,
   };
-  gui.add(param, "motion");
 
   const lightFolder = gui.addFolder("Light");
   lightFolder.add(param, "light").onChange(function (val) {
