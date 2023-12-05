@@ -30,7 +30,7 @@ function init() {
     1,
     1000
   );
-  camera.position.set(0, 20, 35);
+  camera.position.set(0, 15, 35);
 
   scene = new THREE.Scene();
 
@@ -39,7 +39,9 @@ function init() {
 
   RectAreaLightUniformsLib.init();
   rectLight = new THREE.RectAreaLight(0xffffff, 1, 10, 10);
-  rectLight.position.set(5, 5, 10);
+  rectLight.position.set(0, 10, -10);
+  rectLight.rotation.set(Math.PI, 0, 0);
+  rectLight.intensity = 2;
   scene.add(rectLight);
 
   rectLightHelper = new RectAreaLightHelper(rectLight);
@@ -88,6 +90,8 @@ function init() {
 
   const controls = new OrbitControls(camera, renderer.domElement);
   controls.target.copy(mshStdBox.position);
+  controls.maxPolarAngle = Math.PI / 2;
+  controls.minPolarAngle = 0;
   controls.update();
 
   stats = new Stats();
